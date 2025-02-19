@@ -82,6 +82,61 @@
             color: #1f5ca9;
             font-weight: bold;
         }
+        @media screen and (max-width: 1024px) { 
+            .container {
+                max-width: 95%;
+                padding: 15px;
+            }
+            .accordion {
+                font-size: 16px;
+                padding: 12px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .exercise-table {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) { 
+            .accordion {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .panel {
+                padding: 10px;
+            }
+            th, td {
+                padding: 6px;
+                font-size: 12px;
+            }
+            .exercise-tables {
+                flex-direction: column;
+            }
+            .exercise-table {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) { 
+            body {
+                margin: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .accordion {
+                font-size: 14px;
+                padding: 8px;
+            }
+            th, td {
+                padding: 5px;
+                font-size: 11px;
+            }
+        }
+
     </style>
 </head>
 <body>
