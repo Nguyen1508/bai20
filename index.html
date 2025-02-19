@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Khóa Chính và Khóa Ngoại</title>
+    <style>
+        body {
+            font-family: 'K2D', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            font-family: 'K2D', sans-serif;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .accordion {
+            background-color: #1f5ca9;
+            font-family: 'K2D', sans-serif;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .accordion:hover {
+            background-color: #2980b9;
+        }
+        .panel {
+            padding: 15px;
+            display: none;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .exercise-tables {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+        .exercise-table {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+        .small-button {
+            font-size: 15px;
+            padding: 10px;
+            width: auto;
+            background-color: #00afef;
+        }
+        .small-button:hover {
+            background-color: #00afef;
+        }
+        h2{
+            text-align: center;
+            color: #1f5ca9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bài 20. THỰC HÀNH TẠO LẬP CÁC BẢNG CÓ KHÓA NGOẠI</h2>
+        
+        <button class="accordion">Khóa Chính (Primary Key)</button>
+        <div class="panel">
+            <p>Khóa chính là một hay nhiều cột dùng để xác định duy nhất một bản ghi trong bảng.</p>
+            <p>Lưu ý</p>
+            <ul>
+                <li>Một bảng chỉ có một khóa chính.</li>
+                <li>Các giá trị trong khóa chính không được trùng lặp và không được để trống (NULL).</li>
+            </ul>
+            <table>
+                <tr>
+                    <th>MaHS (Primary Key)</th>
+                    <th>HoTen</th>
+                    <th>Lop</th>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>An</td>
+                    <td>12A1</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Bình</td>
+                    <td>12A1</td>
+                </tr>
+            </table>
+        </div>
+        
+        <button class="accordion">Khóa Ngoại (Foreign Key)</button>
+        <div class="panel">
+            <p>Khóa ngoại là một hoặc nhiều cột trong bảng, dùng để liên kết với khóa chính của bảng khác.</p>
+            <p>Giúp đảm bảo ràng buộc toàn vẹn dữ liệu, tức là giá trị của khóa ngoại phải tồn tại trong bảng tham chiếu.</p>
+            <p>Lưu ý</p>
+            <ul>
+                <li>Phải tham chiếu đến một khóa chính hợp lệ của bảng khác.</li>
+                <li>Có thể NULL nếu không bắt buộc phải có giá trị.</li>
+            </ul>
+            <table>
+                <tr>
+                    <th>MaDiem</th>
+                    <th>MaHS (Foreign Key)</th>
+                    <th>MonHoc</th>
+                    <th>Diem</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>Toán</td>
+                    <td>8.5</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>102</td>
+                    <td>Văn</td>
+                    <td>7.0</td>
+                </tr>
+            </table>
+        </div>
+        <button class="accordion">Bài tập</button>
+        <div class="panel">
+            <button class="accordion small-button">Bài tập 1</button>
+            <div class="panel">
+                <p>Thiết lập khóa ngoại cho các bảng sau và nhập dữ liệu cho bảng?</p>
+                <p>Bảng bannhac: khóa ngoại idNhacsi.</p>
+                <p>Bảng banthuam: Khóa ngoại idBannhac(bannhac), idCasi(casi)</p>
+                <div class="exercise-tables">
+            <table class="exercise-table">
+                <tr>
+                    <th>idCasi</th>
+                    <th>tenCasi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Trần Khánh</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Lê Dung</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tân Nhân</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Quốc Hương</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Doãn Tần</td>
+                </tr>
+            </table>
+            <table class="exercise-table">
+                <tr>
+                    <th>idNhacsi</th>
+                    <th>tenNhacsi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Đỗ Nhuân</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Văn Cao</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Hoàng Việt</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nguyễn Tài Tuệ</td>
+                </tr>
+            </table>
+            <table class="exercise-table">
+                <tr>
+                    <th>idBannhac</th>
+                    <th>tenBannhac</th>
+                    <th>idNhacsi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Du kích sông Thao</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Trường ca Sông Lô</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tình ca</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Xa khơi</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Việt Nam quê hương tôi</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Tiến về Hà Nội</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Nhạc rừng</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Tiếng hát giữa rừng Pắc Bó</td>
+                    <td>4</td>
+                </tr>
+            </table>
+            <table class="exercise-table">
+                <tr>
+                    <th>idBanthuam</th>
+                    <th>idBannhac</th>
+                    <th>idCasi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>6</td>
+                    <td>4</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+            <button class="accordion small-button">Bài tập 2</button>
+            <div class="panel">
+                <p>Xây dựng cơ sở dữ liệu quản lý các thông tin của một học sinh. Hãy thiết kế cơ sở dữ liệu cũng như những ràng buộc của nó?</p>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Để xây dựng cơ sở dữ liệu này, cần lưu trữ những thông tin gì?</li>
+                    <li>Cơ sở dữ liệu có bao nhiêu bảng?</li>
+                    <li>Mỗi bảng lưu thông tin gì?</li>
+                    <li>Mỗi bảng có những cột nào?</li>
+                    <li>Mối quan hệ giữa những bảng này?</li>
+                </ul>
+        </div>
+        <button class="accordion small-button">Bài tập 3</button>
+        <div class="panel">
+            <p>Hãy thiết kế một cơ sở dữ liệu để quản lý hoạt động bán hàng, bao gồm các thông tin về đơn hàng, khách hàng và sản phẩm.</p>
+            <p>Mô tả: Quản lý thông tin đơn hàng, khách hàng và sản phẩm.</p>
+            <p>Gợi ý:</p>
+            <ul>
+                <li>Để xây dựng cơ sở dữ liệu này, cần lưu trữ những thông tin gì?</li>
+                <li>Cơ sở dữ liệu có bao nhiêu bảng?</li>
+                <li>Mỗi bảng lưu thông tin gì?</li>
+                <li>Mỗi bảng có những cột nào?</li>
+                <li>Mối quan hệ giữa những bảng này?</li>
+            </ul>
+        </div>
+        </div>
+        
+    </div>
+
+    <script>
+        document.querySelectorAll(".accordion").forEach(button => {
+            button.addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
