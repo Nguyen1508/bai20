@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <title>Khóa Chính và Khóa Ngoại</title>
     <style>
         body {
@@ -200,6 +200,48 @@
                 </tr>
             </table>
         </div>
+        <button class="accordion">SQL - Ngôn ngữ có truy vấn</button>
+        <div class="panel">
+            <p>Minh họa cho cách quản trị cơ sở dữ liệu.</p>
+            <table>
+                <tr>
+                    <th>Ý nghĩa</th>
+                    <th>Câu lệnh</th>
+                    <th>Ví dụ</th>
+                </tr>
+                <tr>
+                    <td>Khởi tạo cơ sở dữ liệu</td>
+                    <td>CREATE DATABASE</td>
+                    <td>CREATE DATABASE hocsinh;</td>
+                </tr>
+                <tr>
+                    <td>Khởi tạo bảng</td>
+                    <td>CREATE TABLE </td>
+                    <td>CREATE TABLE thongtincanhan( <br>MaHS INT PRIMARY KEY,<br> HoTen VARCHAR (50), <br>Lop VARCHAR(10) <br> ) ;</td>
+                </tr>
+                <tr>
+                    <td>Thêm dữ liệu</td>
+                    <td>INSERT INTO <tên bảng> &lt;danh sách cột&gt; VALUES &lt;danh sách giá trị&gt;</td>
+
+                    <td>INSERT INTO thongtincanhan VALUES (101,'An','12A1');</td>
+                </tr>
+                <tr>
+                    <td>Xóa các dòng của bảng</td>
+                    <td>DELETE FROM &lt;tên bảng&gt; WHERE &lt;điều kiện&gt; </td>
+                    <td>DELETE FROM thongtincanhan WHERE MaHS=101; </td>
+                </tr>
+                <tr>
+                    <td>Cập nhật dữ liệu</td>
+                    <td>UPDATE &lt;tên bảng&gt; SET &lt;tên trường&gt; = &lt;giá trị&gt;</td>
+                    <td>UPDATE thongtincanhan SET HoTen = 'Nguyên' WHERE MaHS =101;</td>
+                </tr>
+                <tr>
+                    <td>Truy xuất dữ liệu</td>
+                    <td>SELECT &lt;Dữ liệu cần lấy&gt; FROM &lt;tên bảng&gt; WHERE &lt;điều kiện&gt; ORDER BY &lt;tên trường&gt;</td>
+                    <td>SELECT MaHS, HoTen FROM thongtincanhan WHERE Lop ='10A1' ORDER BY HoTen;</td>
+                </tr>
+            </table>
+        </div>
         <button class="accordion">Bài tập</button>
         <div class="panel">
             <button class="accordion small-button">Bài tập 1</button>
@@ -392,10 +434,39 @@
                 <li>Mối quan hệ giữa những bảng này?</li>
             </ul>
         </div>
+        <button class="accordion small-button">Bài tập 4</button>
+        <div class="panel">
+            <p>Thực hiện viết câu lệnh truy vấn trong bảng bannhac</p>
+            <ol>
+                <li>Truy xuất dữ liệu theo thứ tự giảm dần của trường idBannhac theo thứ tự tên bản nhạc.</li>
+                <li>Lấy danh sách tên các bản nhạc của nhạc sĩ Văn Cao có trong bảng bannhac.</li>
+            </ol>
+        </div>
+        <button class="accordion small-button">Bài tập 5</button>
+        <div class="panel">
+            <p>Thực hiện viết câu lệnh truy vấn trong bảng nhacsi</p>
+            <ol>
+                <li>Viết câu lệnh truy vấn thêm vào bảng nhacsi “Phạm Tuyên”.</li>
+                <li>Viết câu lệnh truy vấn cập nhật nhacsi “Phạm Tuyên” thành “Lưu Hữu Phước”.</li>
+                <li>Viết câu lệnh truy vấn xóa tenNhacsi “Lưu Hữu Phước”.</li>
+            </ol>
+        </div>
+        <button class="accordion small-button">Bài tập 6</button>
+        <div class="panel">
+            <p>Tìm hiểu chức năng của phần mềm quản lý âm nhạc. Viết những câu lệnh truy vấn cho yêu cầu sau:</p>
+            <ol>
+                <li>Nhập dữ liệu bạn nhạc mới.</li>
+                <li>Tìm một bản nhạc bằng cách nhập một vài từ của tên bản nhạc.</li>
+                <li>Hiển thị danh sách bảng nhạc có trong cơ sở dữ liệu (được hiển thị thành nhiều trang, mỗi trang 10 dòng).</li>
+                <li>Sửa thông tin bản nhạc, chọn radio trên màn hình, thông tin của bản nhac sẽ hiển thị ở phía dưới dể người dùng sửa chữa, thay đổi, ... Nháy chọn nhập để lưu lại kết quả.</li>
+                <li>Xóa dữ liệu một hàng bất kỳ.</li>
+            </ol>
+        </div>
+        </div>
+        
         </div>
         
     </div>
-
     <script>
         document.querySelectorAll(".accordion").forEach(button => {
             button.addEventListener("click", function() {
@@ -407,6 +478,10 @@
                     panel.style.display = "block";
                 }
             });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.style.opacity = "1";
+            document.querySelector(".container").style.transform = "translateY(0)";
         });
     </script>
 </body>
